@@ -1,5 +1,6 @@
 # import libraries
 import flask
+from flask_cors import CORS
 from models.models import db
 import os
 from dotenv import load_dotenv
@@ -17,6 +18,15 @@ DB_PASS = os.getenv('DB_PASS')
 
 
 app = flask.Flask(__name__)
+api_cors_headers = {
+    "origins": [
+        "localhost:3000",
+        "http://localhost:3000",
+    ],
+    "methods": ["OPTIONS", "DELETE", "GET", "POST"],
+    "allow_headers": ["Authorization", "Content-Type"]
+}
+cors = CORS(app, resources={"/*": api_cors_headers}, supports_credentials=True)  # nopep8
 
 
 @app.before_first_request
