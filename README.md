@@ -1,2 +1,2 @@
-# Graph Solver Web UI
-This the repository for 
+# Web Application Template
+This repository contains scaffolding for a basic React+Flask application. It provides basic, reusable functionallity, as well as a reverse proxy for deployments and a PostgresDB. It contains a `docker-compose` file that will bring up the entire application and serve routes on `8000` and `8443`.
