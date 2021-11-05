@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.10-bullseye
 
 # setup production python env variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -6,8 +6,7 @@ ENV PYTHONUNBUFFERED 1
 
 # install system dependecies
 RUN pip install --upgrade pip
-RUN apk --no-cache --update upgrade
-RUN apk add musl-dev gcc rust cargo python3-dev openssl-dev postgresql-dev libffi-dev py3-virtualenv alpine-sdk
+RUN apt update -y&&apt upgrade -y
 RUN mkdir /project
 WORKDIR /project
 
